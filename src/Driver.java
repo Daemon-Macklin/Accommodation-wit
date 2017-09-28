@@ -5,6 +5,7 @@
  *
  */
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Driver {
@@ -19,6 +20,7 @@ public class Driver {
      */
     public static void main(String[] args){
         Driver accom = new Driver();
+        accom.setup();
         accom.load();
     }
 
@@ -35,6 +37,12 @@ public class Driver {
         this.runStart();
     }
 
+    public void setup(){
+        Student header = new Student('header', 'M', false);
+        StudentNode front = new StudentNode(header, null);
+
+    }
+
     public int start(){
         int option;
         System.out.println("----Welcome to WIT accommodation service----");
@@ -43,7 +51,7 @@ public class Driver {
         System.out.println(" 2) Add Property");
         System.out.println(" 3) Add Room");
         System.out.println(" 4) Add Bed");
-        System.out.println(" 5) Veiw");
+        System.out.println(" 5) View");
         option = 0;
 
         while(option < 1 || option > 5){
@@ -79,8 +87,60 @@ public class Driver {
             case 5:
                 //view
                 break;
+
+            default:
+                this.optionError();
+                break;
         }
     }
+
+    public void addStudent(){
+        System.out.println("Name");
+            String name = getStringOption();
+
+        System.out.println("Gender");
+            String gender = getStringOption();
+
+        boolean hasCar = car();
+
+        accomApi.addStudent(new Student(name, gender, hasCar));
+    }
+
+    public boolean car(){
+        int option = runCar();
+        boolean hasCar = false;
+        switch(option) {
+            case 1:
+                hasCar = true;
+                break;
+
+            case 2:
+                hasCar = false;
+                break;
+
+            default:
+                this.optionError();
+                break;
+        }
+        return hasCar;
+    }
+
+    public int runCar(){
+       int option;
+       System.out.println("Does the student have a car?");
+       System.out.println(" 1) Yes");
+       System.out.println(" 2) No");
+       option = 0;
+        while(option < 1 || option > 2){
+            option = getIntOption();
+            if(option < 1 || option > 2){
+                this.optionError();
+            }
+        }
+        return option;
+    }
+
+
 
     //utility funcions
     /**

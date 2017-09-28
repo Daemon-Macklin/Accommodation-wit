@@ -1,3 +1,10 @@
+/**
+ * Bed Class
+ *
+ * @author Daemon-Macklin
+ *
+ */
+
 public class Bed {
     //Room
     // ID
@@ -34,18 +41,22 @@ public class Bed {
     }
 
     public void setCost(int cost) {
+
         this.cost = cost;
     }
 
     public void setRoom(int room) {
+
         this.room = room;
     }
 
     public void setType(String type) {
+
         this.type = type;
     }
 
     public int getId() {
+
         return this.id;
     }
 
@@ -54,14 +65,17 @@ public class Bed {
     }
 
     public int getCost() {
+
         return this.cost;
     }
 
     public int getRoom() {
+
         return this.room;
     }
 
     public String getType(){
+
         return this.type;
     }
 

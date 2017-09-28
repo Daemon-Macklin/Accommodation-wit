@@ -1,3 +1,10 @@
+/**
+ * Property Class
+ *
+ * @author Daemon-Macklin
+ *
+ */
+
 public class Property {
 
     //address
@@ -18,14 +25,19 @@ public class Property {
     }
 
     public void setId(int id) {
+
         this.id = id;
+
     }
 
     public void setAddress(String address) {
+
         this.address = address;
+
     }
 
     public void setParking(int parking) {
+
         this.parking = parking;
     }
 
@@ -42,10 +54,12 @@ public class Property {
     }
 
     public double getDistanceWit() {
+
         return distanceWit;
     }
 
     public int getParking() {
+
         return parking;
     }
 }

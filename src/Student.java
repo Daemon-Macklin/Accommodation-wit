@@ -1,3 +1,10 @@
+/**
+ * Student Class
+ *
+ * @author Daemon-Macklin
+ *
+ */
+
 public class Student {
     //Name
     // gender
@@ -7,19 +14,17 @@ public class Student {
     private String name;
     private String gender;
     private boolean car;
-    private int id;
 
 
-        public Student(String name, String gender, boolean car, int id){
+        public Student(String name, String gender, boolean car){
             this.setName(name);
             this.setGender(gender);
             this.setCar(car);
-            this.setId(id);
     }
 
     public String toSting(){
             return "Name: " + this.getName() + " Gender: " + this.getGender() + " Car: "
-                    + this.isCar() + "ID:" + this.getId();
+                    + this.isCar();
     }
 
     public void setName(String name){
@@ -63,27 +68,23 @@ public class Student {
     }
 
     public void setCar(boolean car){
+
         this.car = car;
     }
 
-    public void setId(int id){
-        this.id = id;
-    }
-
     public String getName() {
+
         return this.name;
     }
 
     public String getGender() {
+
         return this.gender;
+
     }
 
     public boolean isCar() {
+
         return this.car;
     }
-
-    public int getId() {
-        return this.id;
-    }
-
 }

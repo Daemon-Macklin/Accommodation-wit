@@ -1,3 +1,10 @@
+/**
+ * Room Class
+ *
+ * @author Daemon-Macklin
+ *
+ */
+
 public class Room {
 
     //Level
@@ -18,34 +25,44 @@ public class Room {
     }
 
     public void setId(int id) {
+
         this.id = id;
+
     }
 
     public void setEnSuit(boolean enSuit) {
+
         this.enSuit = enSuit;
     }
 
     public void setLevel(int level) {
+
         this.level = level;
     }
 
     public void setProperty(int property) {
+
         this.property = property;
     }
 
     public int getId() {
+
         return id;
     }
 
     public boolean isEnSuit() {
+
         return enSuit;
     }
 
     public int getLevel() {
+
         return level;
+
     }
 
     public int getProperty() {
+
         return property;
     }
 }
