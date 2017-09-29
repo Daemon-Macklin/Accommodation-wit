@@ -14,12 +14,14 @@ public class Student {
     private String name;
     private String gender;
     private boolean car;
+    private int id;
 
 
-        public Student(String name, String gender, boolean car){
+        public Student(String name, String gender, boolean car, int id){
             this.setName(name);
             this.setGender(gender);
             this.setCar(car);
+            this.setId(id);
     }
 
     public String toSting(){
@@ -70,6 +72,10 @@ public class Student {
     public void setCar(boolean car){
 
         this.car = car;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

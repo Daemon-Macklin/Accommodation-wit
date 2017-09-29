@@ -5,7 +5,6 @@
  *
  */
 
-import java.util.Optional;
 import java.util.Scanner;
 
 public class Driver {
@@ -13,6 +12,7 @@ public class Driver {
     public Scanner input;
 
     public AccomApi accomApi;
+    public StudentList studentList;
 
     /**
      * Main method, program sarts here
@@ -20,7 +20,6 @@ public class Driver {
      */
     public static void main(String[] args){
         Driver accom = new Driver();
-        accom.setup();
         accom.load();
     }
 
@@ -30,17 +29,12 @@ public class Driver {
     public Driver(){
         input = new Scanner(System.in);
         this.accomApi = new AccomApi();
+        this.studentList = new StudentList();
     }
 
     public void load(){
         //CSV LOADING
         this.runStart();
-    }
-
-    public void setup(){
-        Student header = new Student('header', 'M', false);
-        StudentNode front = new StudentNode(header, null);
-
     }
 
     public int start(){
@@ -69,7 +63,7 @@ public class Driver {
 
         switch(option){
             case 1:
-                //add student
+                this.addStudent();
                 break;
 
             case 2:
@@ -95,6 +89,7 @@ public class Driver {
     }
 
     public void addStudent(){
+        getStringOption();
         System.out.println("Name");
             String name = getStringOption();
 
@@ -103,24 +98,21 @@ public class Driver {
 
         boolean hasCar = car();
 
-        accomApi.addStudent(new Student(name, gender, hasCar));
+        int id = studentList.countStudent() + 1;
+        studentList.addStudent(new Student(name, gender, hasCar, id));
     }
 
     public boolean car(){
         int option = runCar();
         boolean hasCar = false;
-        switch(option) {
-            case 1:
-                hasCar = true;
-                break;
-
-            case 2:
-                hasCar = false;
-                break;
-
-            default:
-                this.optionError();
-                break;
+        if(option == 1){
+            hasCar = true;
+        }
+        else if(option == 2){
+           hasCar = false;
+        }
+        else{
+           optionError();
         }
         return hasCar;
     }
@@ -177,6 +169,7 @@ public class Driver {
      * Method that prints error message when invalid option is selected
      */
     public void optionError(){
+
         System.out.println("Invalid option selected");
     }
 }

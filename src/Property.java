@@ -42,14 +42,17 @@ public class Property {
     }
 
     public void setDistanceWit(double distanceWit) {
+
         this.distanceWit = distanceWit;
     }
 
     public int getId() {
+
         return id;
     }
 
     public String getAddress() {
+
         return address;
     }
 
