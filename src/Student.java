@@ -89,6 +89,11 @@ public class Student {
 
     }
 
+    public int getId(){
+
+        return this.id;
+    }
+
     public boolean isCar() {
 
         return this.car;

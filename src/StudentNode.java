@@ -6,8 +6,8 @@
  */
 public class StudentNode {
 
-    public Student student;
-    public StudentNode next;
+    private Student student;
+    private StudentNode next;
 
     public  StudentNode(Student student, StudentNode next){
         this.setNext(next);

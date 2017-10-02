@@ -46,11 +46,12 @@ public class Driver {
         System.out.println(" 3) Add Room");
         System.out.println(" 4) Add Bed");
         System.out.println(" 5) View");
+        System.out.println(" 6) Remove");
         option = 0;
 
-        while(option < 1 || option > 5){
+        while(option < 1 || option > 6){
             option = getIntOption();
-            if(option < 1 || option > 5){
+            if(option < 1 || option > 6){
                 this.optionError();
             }
         }
@@ -79,7 +80,11 @@ public class Driver {
                 break;
 
             case 5:
-                //view
+                this.runViewMenu();
+                break;
+
+            case 6:
+                this.runRemoveMenu();
                 break;
 
             default:
@@ -96,14 +101,15 @@ public class Driver {
         System.out.println("Gender");
             String gender = getStringOption();
 
-        boolean hasCar = car();
+        boolean hasCar = runCar();
 
-        int id = studentList.countStudent() + 1;
+        int id = studentList.idGen();
         studentList.addStudent(new Student(name, gender, hasCar, id));
+        this.runStart();
     }
 
-    public boolean car(){
-        int option = runCar();
+    public boolean runCar(){
+        int option = car();
         boolean hasCar = false;
         if(option == 1){
             hasCar = true;
@@ -112,12 +118,12 @@ public class Driver {
            hasCar = false;
         }
         else{
-           optionError();
+           this.optionError();
         }
         return hasCar;
     }
 
-    public int runCar(){
+    public int car(){
        int option;
        System.out.println("Does the student have a car?");
        System.out.println(" 1) Yes");
@@ -132,7 +138,98 @@ public class Driver {
         return option;
     }
 
+    public void runViewMenu(){
+        int option = viewMenu();
+        switch(option) {
+            case 1:
+                System.out.println(studentList.viewStudents());
+                getStringOption();
+                this.runStart();
+                break;
+            default:
+                this.optionError();
+                break;
+        }
+    }
 
+    public int viewMenu(){
+        int option;
+        System.out.println("What would you like to view?");
+        System.out.println(" 1) Students");
+
+        option =0;
+        while(option < 1 || option > 2){
+            option = getIntOption();
+            if(option < 1 || option > 2){
+                this.optionError();
+            }
+        }
+        return option;
+    }
+
+    public void runRemoveMenu(){
+        int option = removeMenu();
+        switch(option){
+            case 1:
+                this.removeStudent();
+                break;
+
+            case 2:
+                //remove property
+                break;
+
+            case 3:
+                //remove room
+                break;
+
+            case 4:
+                //remove bed
+                break;
+
+            case 5:
+                //remove student from bed
+                break;
+
+            default:
+                optionError();
+                break;
+        }
+    }
+
+    public int removeMenu(){
+
+        int option;
+        System.out.println("What would you like to remove");
+        System.out.println(" 1) Remove Student");
+        System.out.println(" 2) Remove Property");
+        System.out.println(" 3) Remove Room");
+        System.out.println(" 4) Remove Bed");
+        System.out.println(" 5) Remove Student from Bed");
+        option = 0;
+        while(option < 1 || option > 5){
+            option = getIntOption();
+            if(option < 1 || option > 5){
+                this.optionError();
+            }
+        }
+        return option;
+    }
+
+    public void removeStudent() {
+        int id;
+        StudentNode student;
+        System.out.println("Please give ID of student you wish to remove");
+        id = getIntOption();
+        student = studentList.findStudent(id);
+        if (student == null) {
+            System.out.println("Sorry no ID match");
+        } else {
+            studentList.removeStudent(student);
+            System.out.println("The student has been removed");
+            System.out.println(studentList.viewStudents());
+        }
+        this.runStart();
+    }
 
     //utility funcions
     /**
