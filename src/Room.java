@@ -17,6 +17,13 @@ public class Room {
         private int id;
         private boolean enSuit;
 
+    /**
+     * Constructor for rooms
+     * @param level Floor room is on
+     * @param enSuit if it has and enSuite or not
+     * @param property Property id
+     * @param id Room id
+     */
     public Room(int level, boolean enSuit, int property, int id){
         this.setLevel(level);
         this.setEnSuit(enSuit);
@@ -24,6 +31,18 @@ public class Room {
         this.setId(id);
     }
 
+    /**
+     * To String
+     * @return
+     */
+    public String toString(){
+       return "Room: " + this.getId() + ", Level: " + this.getLevel()
+       + ", EnSuite: " + this.isEnSuit() + ", Property " + this.getProperty();
+    }
+
+    /*
+    Getters and Setters
+     */
     public void setId(int id) {
 
         this.id = id;
@@ -36,8 +55,12 @@ public class Room {
     }
 
     public void setLevel(int level) {
-
-        this.level = level;
+        if(level < 4) {
+            this.level = level;
+        }
+        else{
+            this.level = 1;
+        }
     }
 
     public void setProperty(int property) {

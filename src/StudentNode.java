@@ -1,9 +1,11 @@
 /**
  * StudentNode class- custom data structure
- *
+ *Unused code
  * @author Daemon-Macklin
  *
- */
+ *
+
+
 public class StudentNode {
 
     private Student student;
@@ -17,7 +19,6 @@ public class StudentNode {
     public String toString() {
 
         return student.toString();
-
 
     }
 
@@ -43,3 +44,4 @@ public class StudentNode {
         return next;
     }
 }
+*/

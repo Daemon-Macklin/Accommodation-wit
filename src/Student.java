@@ -24,9 +24,9 @@ public class Student {
             this.setId(id);
     }
 
-    public String toSting(){
-            return "Name: " + this.getName() + " Gender: " + this.getGender() + " Car: "
-                    + this.isCar();
+    public String toString(){
+            return "Name: " + getName() + " Gender: " + getGender() + " Car: "
+                    + isCar();
     }
 
     public void setName(String name){
@@ -75,7 +75,9 @@ public class Student {
     }
 
     public void setId(int id) {
+
         this.id = id;
+
     }
 
     public String getName() {

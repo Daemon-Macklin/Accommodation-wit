@@ -1,9 +1,10 @@
 /**
- * StudentNode class- custom data structure manger
+ * StudentList class- custom data structure manger for StudentNode Objects
+ * Unused code
  *
  * @author Daemon-Macklin
  *
- */
+
 
 public class StudentList {
 
@@ -37,11 +38,11 @@ public class StudentList {
                 studentBefore.setNext(student.getNext());
             }
             else {
-                studentBefore = student.getNext();
+                studentBefore = studentBefore.getNext();
             }
         }
-            if(studentBefore.getNext() == null && studentBefore.getNext() == student){
-                studentBefore.setNext(student.getNext());
+            if(studentBefore.getNext() == null && studentBefore == student){
+                head = studentBefore.getNext();
             }
     }
 
@@ -72,18 +73,22 @@ public class StudentList {
         return id;
     }
 
-    public String viewStudents(){
+    public String viewStudents() {
         String students = "";
-        StudentNode student = head;
-        while(student.getNext() != null){
+        if (isEmpty()) {
+            students = "No Students";
+        } else {
+            StudentNode student = head;
+            while (student.getNext() != null) {
+                students = students + " Name: " + student.getStudent().getName()
+                        + " ID: " + student.getStudent().getId() + ",";
+                student = student.getNext();
+            }
             students = students + " Name: " + student.getStudent().getName()
                     + " ID: " + student.getStudent().getId() + ",";
-            student = student.getNext();
+           }
+            return students;
         }
-            students = students + " Name: " + student.getStudent().getName()
-                    + " ID: " + student.getStudent().getId() + ",";
-        return students;
-    }
 
     public StudentNode findStudent(int id){
         StudentNode foundStudent = null;
@@ -109,3 +114,4 @@ public class StudentList {
         }
     }
 }
+*/

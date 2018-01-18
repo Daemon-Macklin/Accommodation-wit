@@ -1,27 +1,46 @@
+/**
+ * MyObject class, object containing object and link to next MyObject in list
+ * @param <T> type of object being stored
+ */
 
-public abstract class MyObject{
+public class MyObject<T>{
 
-    private Object current;
-    private Object next;
+    private T current;
+    private MyObject next;
 
-    public MyObject(Object current, Object next){
+    /**
+     * Constructor for MyObject
+     * @param current object
+     * @param next next MyObject
+     */
+    public MyObject(T current, MyObject next){
         this.setCurrent(current);
         this.setNext(next);
     }
 
-    public void setCurrent(Object current){
+
+    /*
+     Getters and setters
+     */
+    public void setCurrent(T current){
+
         this.current = current;
+
     }
 
-    public void setNext(Object next){
+    public void setNext(MyObject next){
+
         this.next = next;
+
     }
 
-    public Object getCurrent(){
+    public T getCurrent(){
+
         return this.current;
     }
 
-    public Object getNext(){
+    public MyObject getNext(){
+
         return this.next;
     }
 }
